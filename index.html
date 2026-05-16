@@ -813,12 +813,11 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   gap: 80px;
   align-items: center;
 }
-.story-img-block { position: relative; height: 560px; }
+.story-img-block { position: relative; height: 560px; display: flex; justify-content: center; align-items: center; }
 .story-img-main {
-  position: absolute;
-  top: 0; left: 0;
-  width: 80%; height: 420px;
-  object-fit: cover;
+  position: static;
+  width: 100%; height: auto; max-height: 420px;
+  object-fit: contain;
   border-radius: 2px;
   opacity: 0.72;
   filter: saturate(0.5);
