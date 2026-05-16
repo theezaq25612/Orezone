@@ -426,7 +426,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .hero-title {
   font-family: var(--font-h);
   font-size: clamp(3.8rem, 9vw, 8.5rem);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 0.92;
   letter-spacing: 0.015em;
   margin-bottom: 12px;
@@ -585,12 +585,12 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 90px;
-  align-items: center;
+  align-items: stretch;
 }
 .img-stack { position: relative; }
 .img-main {
-  width: 100%; height: 520px;
-  object-fit: cover;
+  width: 100%; height: 100%;
+  object-fit: contain;
   border-radius: 2px;
   opacity: 0.72;
   filter: saturate(0.55);
@@ -1201,8 +1201,9 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
 ═══════════════════════════════════════════════ */
 @media (max-width: 1024px) {
   .hero-stats { display: none; }
-  .overview-grid, .story-grid, .eval-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .overview-grid, .story-grid, .eval-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; align-items: center; }
   .img-stack, .story-img-block { height: 360px; }
+  .img-main { height: 100%; }
   .story-img-main { width: 84%; height: 300px; }
   .feat-bar-inner { grid-template-columns: repeat(2,1fr); }
   .feat-item:nth-child(2) { border-right: none; }
@@ -1282,15 +1283,14 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
 
   <section class="hero">
     <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=1900&q=80" alt="Gold bars">
+      <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1900&q=80" alt="Gold bars and nuggets">
     </div>
     <div class="particles" id="ptc"></div>
     <div class="wrap">
       <div class="hero-content">
-        <div class="hero-badge">Certified · Authentic · Trusted</div>
+        <div class="hero-badge">Mining excellence Guaranteed</div>
         <h1 class="hero-title">
-          Kinetix Orezone<br>
-          <span class="gold-line">Uganda's Gold Acquisition Expert</span>
+          <span class="gold-line">Mining Excellence in Uganda</span>
         </h1>
         <p class="hero-sub">Uganda's premier gold buying house — we buy all forms of gold at fair, transparent market rates.</p>
         <p class="hero-tag">Gold Bars · Coins · Jewellery · Raw Gold · Scrap</p>
@@ -1349,8 +1349,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
     <div class="wrap">
       <div class="overview-grid">
         <div class="img-stack reveal">
-          <img class="img-main" src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=900&q=80" alt="Gold testing">
-          <img class="img-accent" src="https://images.unsplash.com/photo-1611329532992-0b7ca12cd3d4?w=400&q=80" alt="Gold bars">
+          <img class="img-main" src="ceo.jpeg" alt="CEO Leadership">
           <div class="img-badge">
             <div class="img-badge-num">AAA</div>
             <div class="img-badge-lbl">Rated</div>
@@ -1487,10 +1486,10 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
         </div>
         <div class="reveal d2">
           <div class="label">Who We Are</div>
-          <h2 class="h2">A Company Founded on <span class="gold">Uncompromising Standards</span></h2>
-          <p class="body-text">Kinetix Orezone SMC Limited was established with a clear mandate: to provide Uganda and the wider East African region with access to professional, transparent gold buying services — anchored in certified science, fair pricing, and absolute client discretion.</p>
-          <p class="body-text" style="margin-top:14px">Our founders identified a gap in the regional gold market — sellers routinely received below-market offers, lacked verified testing, and had no assurance of confidentiality. We built Kinetix Orezone to close that gap.</p>
-          <p class="body-text" style="margin-top:14px">Today our team of certified assayers, financial professionals, and logistics specialists serve individual sellers, artisanal miners, corporate enterprises, and institutional clients — all with the same unwavering standards that defined our founding principles.</p>
+          <h2 class="h2">A Leading Mining Company <span class="gold">Dedicated to Excellence</span></h2>
+          <p class="body-text">Kinetix Orezone is a leading mining company dedicated to delivering value through resource development and operational excellence. We are committed to providing transparent, professional gold acquisition services throughout Uganda and the East African region.</p>
+          <p class="body-text" style="margin-top:14px"><strong>Our Goal:</strong> To be a foremost provider of high-quality mineral resources, contributing to sustainable economic growth while maintaining the highest standards of integrity and professionalism.</p>
+          <p class="body-text" style="margin-top:14px"><strong>Our Mission:</strong> To responsibly develop mineral resources, maximize shareholder value, and positively impact communities through ethical business practices and community engagement.</p>
         </div>
       </div>
     </div>
@@ -1505,34 +1504,34 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
       </div>
       <div class="values-grid">
         <div class="val-card reveal">
-          <div class="val-ico">&#127919;</div>
-          <div class="val-h">Our Mission</div>
-          <p class="val-p">To provide every gold seller — from the independent miner to the multinational enterprise — with access to fair market value, professional evaluation, and a transaction experience defined by trust and efficiency.</p>
+          <div class="val-ico">&#128085;</div>
+          <div class="val-h">Our Objectives</div>
+          <p class="val-p"><strong>•</strong> Explore and develop mineral resources<br><strong>•</strong> Operate safely and sustainably<br><strong>•</strong> Engage meaningfully with stakeholders</p>
         </div>
         <div class="val-card reveal d1">
-          <div class="val-ico">&#128301;</div>
-          <div class="val-h">Our Vision</div>
-          <p class="val-p">To be East Africa's benchmark for ethical gold acquisition — an institution where integrity is not aspirational but operational, and where every client leaves knowing they received exactly what they deserved.</p>
-        </div>
-        <div class="val-card reveal d2">
           <div class="val-ico">&#9878;&#65039;</div>
           <div class="val-h">Transparency</div>
           <p class="val-p">Every price, every test result, every fee is disclosed clearly and completely. Our pricing is tied to live LBMA market rates — visible to you in real time during every evaluation.</p>
         </div>
-        <div class="val-card reveal d3">
+        <div class="val-card reveal d2">
           <div class="val-ico">&#129309;</div>
           <div class="val-h">Integrity</div>
           <p class="val-p">We will never compromise on accuracy or honesty regardless of commercial pressure. Our reputation was built transaction by transaction, and it is defended with the same vigilance.</p>
         </div>
-        <div class="val-card reveal d4">
+        <div class="val-card reveal d3">
           <div class="val-ico">&#128272;</div>
           <div class="val-h">Discretion</div>
           <p class="val-p">The financial details of our clients' affairs are sacred. Our confidentiality protocols exceed industry standards, and every team member operates under binding non-disclosure obligations.</p>
         </div>
-        <div class="val-card reveal d5">
+        <div class="val-card reveal d4">
           <div class="val-ico">&#128142;</div>
           <div class="val-h">Excellence</div>
           <p class="val-p">We invest continuously in world-class testing equipment and certified personnel — because your gold deserves the finest assessment available, and nothing less is acceptable.</p>
+        </div>
+        <div class="val-card reveal d5">
+          <div class="val-ico">&#127882;</div>
+          <div class="val-h">Sustainability</div>
+          <p class="val-p">Responsible resource development and positive community impact guide all our operations. We are committed to ethical practices that benefit both our business and society.</p>
         </div>
       </div>
     </div>
