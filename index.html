@@ -1282,7 +1282,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
 
   <section class="hero">
     <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1900&q=80" alt="Gold bars and nuggets">
+      <img src="home.jpeg" alt="Gold bars and nuggets">
     </div>
     <div class="particles" id="ptc"></div>
     <div class="wrap">
@@ -1292,7 +1292,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
           <span class="gold-line">Mining Excellence in Uganda</span>
         </h1>
         <p class="hero-sub">Uganda's premier gold buying house — we buy all forms of gold at fair, transparent market rates.</p>
-        <p class="hero-tag">Gold Bars · Coins · Jewellery · Raw Gold · Scrap</p>
+        <p class="hero-tag">Gold Bars &amp; Bullion · Raw &amp; Alluvial Gold · Gold Dust &amp; Fine Gold</p>
         <div class="hero-actions">
           <a class="btn btn-gold" onclick="goTo('contact')"><span>Sell Your Gold</span><span>→</span></a>
           <a class="btn btn-outline" onclick="goTo('contact')">Request Consultation</a>
@@ -1604,7 +1604,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
     <div class="wrap">
       <div class="eval-grid">
         <div class="reveal">
-          <img src="logo.png" alt="Kinetix Orezone Logo" style="width:100%;height:550px;object-fit:contain;border-radius:2px;opacity:0.9;filter:saturate(0.8)">
+          <img src="logo.png" alt="Kinetix Orezone Logo" style="width:100%;height:1000px;object-fit:contain;border-radius:2px;opacity:0.9;filter:saturate(0.8)">
         </div>
         <div class="reveal d2">
           <div class="label">Testing &amp; Evaluation</div>
@@ -1832,35 +1832,35 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
           </a>
         </div>
 
-        <div class="c-form reveal d2">
+        <form class="c-form reveal d2" id="contactForm" action="https://formsubmit.co/Kinetixorezone@proton.me" method="POST">
           <div class="c-form-title">Send an Inquiry</div>
           <div class="f-row">
-            <div class="f-group"><label>First Name</label><input id="fn" type="text" placeholder="Your first name"></div>
-            <div class="f-group"><label>Last Name</label><input id="ln" type="text" placeholder="Your last name"></div>
+            <div class="f-group"><label>First Name</label><input name="first_name" type="text" placeholder="Your first name" required></div>
+            <div class="f-group"><label>Last Name</label><input name="last_name" type="text" placeholder="Your last name"></div>
           </div>
           <div class="f-row">
-            <div class="f-group"><label>Email Address</label><input id="em" type="email" placeholder="your@email.com"></div>
-            <div class="f-group"><label>Phone Number</label><input id="ph" type="tel" placeholder="+256 ..."></div>
+            <div class="f-group"><label>Email Address</label><input name="email" type="email" placeholder="your@email.com" required></div>
+            <div class="f-group"><label>Phone Number</label><input name="phone" type="tel" placeholder="+256 ..." required></div>
           </div>
           <div class="f-group">
             <label>Type of Gold</label>
-            <select id="gt">
+            <select name="gold_type" required>
               <option value="">Select gold category…</option>
               <option>Gold Bars / Bullion</option>
-              <option>Gold Jewellery</option>
-              <option>Gold Coins</option>
               <option>Raw / Alluvial Gold</option>
-              <option>Scrap / Industrial Gold</option>
-              <option>Multiple Categories</option>
+              <option>Gold Dust & Fine Gold</option>
             </select>
           </div>
-          <div class="f-group"><label>Estimated Quantity</label><input id="qty" type="text" placeholder="e.g. 500g, 1kg, several items…"></div>
-          <div class="f-group"><label>Message</label><textarea id="msg" placeholder="Please describe your gold holdings and what you'd like to discuss…"></textarea></div>
-          <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitForm()">
+          <div class="f-group"><label>Estimated Quantity</label><input name="quantity" type="text" placeholder="e.g. 500g, 1kg, several items…"></div>
+          <div class="f-group"><label>Message</label><textarea name="message" placeholder="Please describe your gold holdings and what you'd like to discuss…" required></textarea></div>
+          <input type="hidden" name="_subject" value="New Gold Inquiry from Kinetix Orezone Website">
+          <input type="hidden" name="_captcha" value="false">
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">
             <span>Submit Inquiry</span><span>→</span>
           </button>
-          <div class="f-success" id="fSuccess">Your inquiry has been received. Our team will contact you within 2 business hours.</div>
-        </div>
+          <div class="f-success" id="fSuccess">WhatsApp is opening with your inquiry pre-filled — just hit Send to reach our team directly.</div>
+          <div class="f-success" id="fError" style="background:rgba(220,50,50,0.08);border-color:rgba(220,50,50,0.35);color:#e07070;display:none">Something went wrong. Please try WhatsApp or email us directly.</div>
+        </form>
       </div>
 
       <div class="map-wrap reveal">
@@ -1888,7 +1888,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
             <span class="logo-sub">SMC Limited</span>
           </div>
         </div>
-        <p>Uganda's trusted professional gold acquisition firm — buying gold bars, coins, jewellery, raw and scrap gold with integrity, transparency, and uncompromising standards.</p>
+        <p>Uganda's trusted professional gold acquisition firm — buying gold bars &amp; bullion, raw &amp; alluvial gold, and gold dust &amp; fine gold with integrity, transparency, and uncompromising standards.</p>
       </div>
       <div>
         <div class="footer-col-h">Navigation</div>
@@ -1904,10 +1904,8 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
         <div class="footer-col-h">We Buy</div>
         <div class="footer-links">
           <a onclick="goTo('services')">Gold Bars &amp; Bullion</a>
-          <a onclick="goTo('services')">Gold Jewellery</a>
-          <a onclick="goTo('services')">Gold Coins</a>
           <a onclick="goTo('services')">Raw &amp; Alluvial Gold</a>
-          <a onclick="goTo('services')">Scrap &amp; Industrial Gold</a>
+          <a onclick="goTo('services')">Gold Dust &amp; Fine Gold</a>
         </div>
       </div>
       <div>
@@ -1983,33 +1981,31 @@ function closeMenu() {
   }
 })();
 
-function submitForm() {
-  const fn  = document.getElementById('fn').value.trim();
-  const ln  = document.getElementById('ln').value.trim();
-  const em  = document.getElementById('em').value.trim();
-  const ph  = document.getElementById('ph').value.trim();
-  const gt  = document.getElementById('gt').value.trim();
-  const qty = document.getElementById('qty').value.trim();
-  const msg = document.getElementById('msg').value.trim();
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const f = new FormData(this);
+  const name     = (f.get('first_name') + ' ' + f.get('last_name')).trim();
+  const email    = f.get('email') || '—';
+  const phone    = f.get('phone') || '—';
+  const goldType = f.get('gold_type') || '—';
+  const qty      = f.get('quantity') || '—';
+  const msg      = f.get('message') || '—';
 
-  if (!fn || !em || !ph || !gt || !msg) {
-    alert('Please fill in all required fields before submitting.');
-    return;
-  }
+  const text =
+    '🟡 *New Gold Inquiry — Kinetix Orezone Website*\n\n' +
+    '*Name:* ' + name + '\n' +
+    '*Email:* ' + email + '\n' +
+    '*Phone:* ' + phone + '\n' +
+    '*Type of Gold:* ' + goldType + '\n' +
+    '*Estimated Quantity:* ' + qty + '\n\n' +
+    '*Message:*\n' + msg;
 
-  const name = fn + (ln ? ' ' + ln : '');
-  const waMsg = `Hello Kinetix Orezone,\n\nName: ${name}\nEmail: ${em}\nPhone: ${ph}\nGold Type: ${gt}\nQuantity: ${qty || 'Not specified'}\n\nMessage:\n${msg}`;
-  const emailSubj = `Gold Inquiry from ${name} – ${gt}`;
-  const emailBody = `Name: ${name}\nEmail: ${em}\nPhone: ${ph}\nGold Type: ${gt}\nQuantity: ${qty || 'Not specified'}\n\nMessage:\n${msg}`;
+  window.open('https://wa.me/256751091332?text=' + encodeURIComponent(text), '_blank');
 
-  window.open(`https://wa.me/256751091332?text=${encodeURIComponent(waMsg)}`, '_blank');
-  setTimeout(() => { window.location.href = `mailto:Kinetixorezone@proton.me?subject=${encodeURIComponent(emailSubj)}&body=${encodeURIComponent(emailBody)}`; }, 600);
-
-  ['fn','ln','em','ph','gt','qty','msg'].forEach(id => { document.getElementById(id).value = ''; });
-  const s = document.getElementById('fSuccess');
-  s.style.display = 'block';
-  setTimeout(() => { s.style.display = 'none'; }, 5500);
-}
+  document.getElementById('fSuccess').style.display = 'block';
+  document.getElementById('fError').style.display = 'none';
+  this.reset();
+});
 
 document.addEventListener('DOMContentLoaded', () => { setTimeout(runReveal, 100); });
 
