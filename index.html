@@ -1240,6 +1240,115 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
   .feat-bar-inner { grid-template-columns: 1fr; }
   .feat-item { border-right: none; border-bottom: 1px solid var(--border); }
 }
+
+/* ═══════════════════════════════════════════════
+   MINING & EXPLORATION
+═══════════════════════════════════════════════ */
+.mining-ops-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.mining-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 230px;
+  gap: 10px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1), filter 0.6s;
+  filter: saturate(0.45) contrast(1.08);
+}
+.gallery-item:hover img { transform: scale(1.06); filter: saturate(0.85) contrast(1.1); }
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,31,27,0.85) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px 18px;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-caption {
+  font-family: var(--font-b);
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  font-weight: 500;
+}
+.sustainability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.stat-showcase {
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.stat-showcase-item {
+  padding: 56px 30px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+  transition: background 0.3s;
+}
+.stat-showcase-item:last-child { border-right: none; }
+.stat-showcase-item:hover { background: var(--glass); }
+.stat-big-num {
+  font-family: var(--font-h);
+  font-size: 4rem;
+  font-weight: 400;
+  background: var(--grad2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.stat-big-lbl {
+  font-family: var(--font-h);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--gold2);
+  margin-bottom: 6px;
+}
+.stat-big-sub { font-size: 0.72rem; color: var(--warm3); font-weight: 300; }
+@media (max-width: 1024px) {
+  .mining-ops-grid { grid-template-columns: 1fr; gap: 48px; }
+  .stat-showcase-grid { grid-template-columns: repeat(2, 1fr); }
+  .sustainability-grid { grid-template-columns: repeat(2, 1fr); }
+  .mining-gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item.wide { grid-column: auto; }
+  .ops-strip { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 768px) {
+  .sustainability-grid { grid-template-columns: 1fr; }
+  .mining-gallery { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+  .gallery-item.tall { grid-row: auto; }
+  .ops-strip { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .stat-showcase-grid { grid-template-columns: 1fr 1fr; }
+  .ops-strip { grid-template-columns: 1fr !important; }
+}
 </style>
 </head>
 <body>
@@ -1259,6 +1368,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
       <a onclick="goTo('home')" data-p="home" class="active">Home</a>
       <a onclick="goTo('about')" data-p="about">About</a>
       <a onclick="goTo('services')" data-p="services">Services</a>
+      <a onclick="goTo('mining')" data-p="mining">Mining &amp; Exploration</a>
       <a onclick="goTo('trust')" data-p="trust">Trust &amp; Assurance</a>
       <a onclick="goTo('contact')" data-p="contact" class="nav-cta">Contact Us</a>
     </div>
@@ -1273,6 +1383,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
   <a onclick="goTo('home');closeMenu()">Home</a>
   <a onclick="goTo('about');closeMenu()">About Us</a>
   <a onclick="goTo('services');closeMenu()">Services</a>
+  <a onclick="goTo('mining');closeMenu()">Mining &amp; Exploration</a>
   <a onclick="goTo('trust');closeMenu()">Trust &amp; Assurance</a>
   <a onclick="goTo('contact');closeMenu()">Contact Us</a>
 </div>
@@ -1662,6 +1773,255 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
 </div><!-- end services -->
 
 
+<!-- ██ PAGE: MINING & EXPLORATION -->
+<div class="page" id="page-mining">
+
+  <!-- OPERATIONS OVERVIEW -->
+  <section class="pad">
+    <div class="wrap">
+      <div class="mining-ops-grid">
+        <div class="reveal">
+          <div class="label">What We Do</div>
+          <h2 class="h2">Industrial-Grade Operations, <span class="gold">Responsibly Executed</span></h2>
+          <p class="body-text">Kinetix Orezone operates across the full mineral extraction value chain — from initial geological reconnaissance and exploration licensing, through site preparation and extraction, to on-site processing and quality-verified gold output ready for international markets.</p>
+          <p class="body-text" style="margin-top:14px">Every operation is conducted under strict environmental oversight, worker safety protocols, and full regulatory compliance with the Uganda Ministry of Energy and Mineral Development. We hold ourselves to international mining standards while remaining deeply accountable to the communities in which we operate.</p>
+          <ul class="ov-list" style="margin:24px 0 32px">
+            <li>Active exploration across multiple licensed concessions</li>
+            <li>Artisanal and small-scale mining support programmes</li>
+            <li>On-site XRF and laboratory processing facilities</li>
+            <li>Full chain-of-custody documentation for all output</li>
+          </ul>
+          <a class="btn btn-gold" onclick="goTo('contact')" style="margin-top:12px"><span>Partner With Us</span><span>→</span></a>
+        </div>
+        <div class="reveal d2">
+          <div class="img-stack" style="height:480px">
+            <img class="img-main" src="goldpool.jpeg" alt="Mining site aerial" style="height:100%;object-fit:cover;border-radius:2px;opacity:0.72;filter:saturate(0.55)">
+            <div class="img-badge">
+              <div class="img-badge-num">5+</div>
+              <div class="img-badge-lbl">Active Sites</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATIONS IMAGE STRIP -->
+  <div style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(36px,5vw,60px) 0">
+    <div class="wrap">
+      <div class="ops-strip" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+        <div class="type-card reveal">
+          <img class="type-img" src="goldpit.jpeg" alt="Geological Exploration" style="height:200px">
+          <div class="type-body">
+            <div class="type-name">Geological Exploration</div>
+            <p class="type-desc">Field teams conduct soil sampling and geophysical surveys to identify viable mineral concessions.</p>
+          </div>
+        </div>
+        <div class="type-card reveal d1">
+          <video style="width:100%;height:200px;object-fit:cover;display:block" controls>
+            <source src="vid1.mp4" type="video/mp4">
+          </video>
+          <div class="type-body">
+            <div class="type-name">Active Extraction</div>
+            <p class="type-desc">Heavy machinery and certified operators execute controlled open-cast and alluvial extraction operations.</p>
+          </div>
+        </div>
+        <div class="type-card reveal d2">
+          <img class="type-img" src="mine.jpeg" alt="On-Site Processing" style="height:200px">
+          <div class="type-body">
+            <div class="type-name">On-Site Processing</div>
+            <p class="type-desc">Gravity separation and centrifugal concentration units process raw ore into clean gold concentrate.</p>
+          </div>
+        </div>
+        <div class="type-card reveal d3">
+          <video style="width:100%;height:200px;object-fit:cover;display:block" controls>
+            <source src="vid2.mp4" type="video/mp4">
+          </video>
+          <div class="type-body">
+            <div class="type-name">Refining Operations</div>
+            <p class="type-desc">Smelting and cupellation remove impurities, producing high-purity gold output to international bullion standards.</p>
+          </div>
+        </div>
+        <div class="type-card reveal">
+          <img class="type-img" src="goldpool.jpeg" alt="Gold Pool" style="height:200px">
+          <div class="type-body">
+            <div class="type-name">Processing Pool</div>
+            <p class="type-desc">Controlled aqueous processing extracts fine gold particles from concentrate for further refinement.</p>
+          </div>
+        </div>
+        <div class="type-card reveal d1">
+          <video style="width:100%;height:200px;object-fit:cover;display:block" controls>
+            <source src="vid3.mp4" type="video/mp4">
+          </video>
+          <div class="type-body">
+            <div class="type-name">Quality Verification</div>
+            <p class="type-desc">Certified XRF analysis and fire assay deliver documented purity certificates on every batch.</p>
+          </div>
+        </div>
+        <div class="type-card reveal d2">
+          <video style="width:100%;height:200px;object-fit:cover;display:block" controls>
+            <source src="vid4.mp4" type="video/mp4">
+          </video>
+          <div class="type-body">
+            <div class="type-name">Distribution</div>
+            <p class="type-desc">Secure logistics and full chain-of-custody documentation ensure compliant, traceable gold market delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS TIMELINE -->
+  <div class="process-band pad">
+    <div class="process-bg-text">EXTRACTION</div>
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:56px" class="reveal">
+        <div class="label" style="justify-content:center">Our Process</div>
+        <h2 class="h2">From Exploration to <span class="gold">Refined Output</span></h2>
+        <p class="sub" style="margin:0 auto">An eight-stage operational framework built for precision, safety, and maximum resource recovery.</p>
+      </div>
+      <div class="steps" style="grid-template-columns:repeat(4,1fr)">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <svg class="step-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="16"/><line x1="24" y1="8" x2="24" y2="14"/><line x1="24" y1="34" x2="24" y2="40"/><line x1="8" y1="24" x2="14" y2="24"/><line x1="34" y1="24" x2="40" y2="24"/><circle cx="24" cy="24" r="4"/></svg>
+          <div class="step-h">Exploration</div>
+          <p class="step-p">Geological reconnaissance, satellite mapping, and concession licensing — identifying high-potential mineral zones with scientific rigour.</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step-num">02</div>
+          <svg class="step-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="28" rx="2"/><polyline points="6 30 16 20 24 28 32 18 42 26"/></svg>
+          <div class="step-h">Geological Survey</div>
+          <p class="step-p">Geophysical surveys, soil sampling, and core drilling map ore body dimensions and grades before a single excavator breaks ground.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-num">03</div>
+          <svg class="step-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="20" width="32" height="20" rx="2"/><path d="M8 20l7-10h18l7 10"/><line x1="18" y1="30" x2="30" y2="30"/></svg>
+          <div class="step-h">Site Preparation</div>
+          <p class="step-p">Environmental impact assessment, land clearance planning, infrastructure development, and baseline monitoring system installation.</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step-num">04</div>
+          <svg class="step-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M36 12L28 20l-4-4 8-8a4 4 0 0 1 4 4z"/><path d="M28 20l-4-4L10 30a4 4 0 0 0 6 6l14-14"/></svg>
+          <div class="step-h">Extraction</div>
+          <p class="step-p">Controlled open-cast or alluvial extraction supervised by qualified mining engineers and safety officers using certified machinery.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">05</div>
+          <svg class="step-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="8"/><path d="M24 8v4M24 36v4M8 24h4M36 24h4M13 13l3 3M32 32l3 3M35 13l-3 3M16 32l-3 3"/></svg>
+          <div class="step-h">Processing</div>
+          <p class="step-p">Gravity separation, sluicing, and centrifugal concentration remove gangue material to produce clean gold concentrate ready for assay.</p>
+        </div>
+        <div class="step reveal d1">
+          <div class="step-num">06</div>
+          <svg class="step-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 16h20l3 6H11l3-6z"/><path d="M11 22v14a2 2 0 0 0 2 2h22a2 2 0 0 0 2-2V22"/><polyline points="20 34 24 30 28 34"/></svg>
+          <div class="step-h">Refining</div>
+          <p class="step-p">Smelting and cupellation remove remaining impurities, producing high-purity gold output meeting international bullion specifications.</p>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-num">07</div>
+          <svg class="step-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6L8 12v10c0 10 7.5 19 16 22 8.5-3 16-12 16-22V12L24 6z"/><polyline points="18 24 22 28 30 20"/></svg>
+          <div class="step-h">Quality Verification</div>
+          <p class="step-p">Certified XRF analysis and fire assay deliver documented purity certificates — all output is independently verifiable and fully traceable.</p>
+        </div>
+        <div class="step reveal d3">
+          <div class="step-num">08</div>
+          <svg class="step-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="18" width="28" height="18" rx="2"/><path d="M32 24h8l4 6v6H32V24z"/><circle cx="14" cy="40" r="4"/><circle cx="38" cy="40" r="4"/></svg>
+          <div class="step-h">Distribution</div>
+          <p class="step-p">Secure logistics, chain-of-custody documentation, and direct acquisition partnerships ensure seamless, fully compliant gold market entry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUSTAINABILITY -->
+  <div class="pad-sm" style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:50px" class="reveal">
+        <div class="label" style="justify-content:center">Our Responsibility</div>
+        <h2 class="h2">Mining That <span class="gold">Gives Back</span></h2>
+        <p class="sub" style="margin:0 auto">Responsible operations that protect the environment, support communities, and sustain livelihoods for future generations.</p>
+      </div>
+      <div class="sustainability-grid">
+        <div class="val-card reveal">
+          <div class="val-ico">🌱</div>
+          <div class="val-h">Environmental Protection</div>
+          <p class="val-p">Mandatory environmental impact assessments precede every new site activation. Rehabilitation programmes restore land to productive condition after extraction concludes.</p>
+        </div>
+        <div class="val-card reveal d1">
+          <div class="val-ico">⛑️</div>
+          <div class="val-h">Worker Safety First</div>
+          <p class="val-p">All field personnel receive certified safety training and PPE, and operate under strictly enforced safety management plans aligned with international mining standards.</p>
+        </div>
+        <div class="val-card reveal d2">
+          <div class="val-ico">🤝</div>
+          <div class="val-h">Community Partnership</div>
+          <p class="val-p">Host communities benefit from structured consultation, local employment programmes, and a share of profits directed to health, education, and infrastructure initiatives.</p>
+        </div>
+        <div class="val-card reveal d3">
+          <div class="val-ico">💧</div>
+          <div class="val-h">Water Stewardship</div>
+          <p class="val-p">Process water is treated and recycled on-site. Discharge monitoring ensures compliance with Uganda's National Environment Management Authority standards.</p>
+        </div>
+        <div class="val-card reveal d4">
+          <div class="val-ico">📋</div>
+          <div class="val-h">Regulatory Compliance</div>
+          <p class="val-p">All operations are licensed and audited by the Uganda Ministry of Energy and Mineral Development. We welcome regulatory inspection as a mark of our transparency.</p>
+        </div>
+        <div class="val-card reveal d5">
+          <div class="val-ico">🌍</div>
+          <div class="val-h">Ethical Supply Chain</div>
+          <p class="val-p">All gold output is fully traceable from extraction site to buyer. We support artisanal miners with fair pricing, technical guidance, and responsible sourcing practices.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATISTICS -->
+  <div class="stat-showcase">
+    <div class="wrap">
+      <div class="stat-showcase-grid">
+        <div class="stat-showcase-item reveal">
+          <div class="stat-big-num" data-target="5" data-suffix="+">5+</div>
+          <div class="stat-big-lbl">Active Mining Sites</div>
+          <div class="stat-big-sub">Across Uganda &amp; East Africa</div>
+        </div>
+        <div class="stat-showcase-item reveal d1">
+          <div class="stat-big-num" data-target="10" data-suffix="+">10+</div>
+          <div class="stat-big-lbl">Years of Experience</div>
+          <div class="stat-big-sub">In mineral exploration &amp; acquisition</div>
+        </div>
+        <div class="stat-showcase-item reveal d2">
+          <div class="stat-big-num" data-target="100" data-suffix="%">100%</div>
+          <div class="stat-big-lbl">Traceable Output</div>
+          <div class="stat-big-sub">Full chain-of-custody on all gold</div>
+        </div>
+        <div class="stat-showcase-item reveal d3">
+          <div class="stat-big-num" data-target="24" data-suffix="h">24h</div>
+          <div class="stat-big-lbl">Settlement Turnaround</div>
+          <div class="stat-big-sub">From submission to payment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band pad-sm">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="label" style="justify-content:center">Ready to Partner?</div>
+        <div class="cta-band-title">Partner With a Trusted Mining Company</div>
+        <p class="cta-band-sub">Whether you are an institutional buyer, investor, or small-scale miner seeking support — Kinetix Orezone is ready to engage.</p>
+        <div class="cta-btns">
+          <a class="btn btn-gold" onclick="goTo('contact')"><span>Contact Us</span><span>→</span></a>
+          <a class="btn btn-outline" onclick="goTo('trust')">Trust &amp; Assurance</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end mining -->
+
+
 <!-- ██ PAGE: TRUST -->
 <div class="page" id="page-trust">
   <div class="page-hero">
@@ -1895,6 +2255,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
           <a onclick="goTo('home')">Home</a>
           <a onclick="goTo('about')">About Us</a>
           <a onclick="goTo('services')">Services</a>
+          <a onclick="goTo('mining')">Mining &amp; Exploration</a>
           <a onclick="goTo('trust')">Trust &amp; Assurance</a>
           <a onclick="goTo('contact')">Contact Us</a>
         </div>
@@ -2007,6 +2368,25 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 });
 
 document.addEventListener('DOMContentLoaded', () => { setTimeout(runReveal, 100); });
+
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const suffix = el.dataset.suffix || '';
+  const start = performance.now();
+  const duration = 1800;
+  (function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  })(performance.now());
+}
+if ('IntersectionObserver' in window) {
+  const co = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); co.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
+}
 
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
