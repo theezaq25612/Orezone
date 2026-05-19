@@ -1331,6 +1331,9 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
   margin-bottom: 6px;
 }
 .stat-big-sub { font-size: 0.72rem; color: var(--warm3); font-weight: 300; }
+.ops-strip::-webkit-scrollbar { height: 4px; }
+.ops-strip::-webkit-scrollbar-track { background: var(--panel2); border-radius: 2px; }
+.ops-strip::-webkit-scrollbar-thumb { background: var(--gold-dk); border-radius: 2px; }
 @media (max-width: 1024px) {
   .mining-ops-grid { grid-template-columns: 1fr; gap: 48px; }
   .stat-showcase-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1785,13 +1788,7 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
           <h2 class="h2">Industrial-Grade Operations, <span class="gold">Responsibly Executed</span></h2>
           <p class="body-text">Kinetix Orezone operates across the full mineral extraction value chain — from initial geological reconnaissance and exploration licensing, through site preparation and extraction, to on-site processing and quality-verified gold output ready for international markets.</p>
           <p class="body-text" style="margin-top:14px">Every operation is conducted under strict environmental oversight, worker safety protocols, and full regulatory compliance with the Uganda Ministry of Energy and Mineral Development. We hold ourselves to international mining standards while remaining deeply accountable to the communities in which we operate.</p>
-          <ul class="ov-list" style="margin:24px 0 32px">
-            <li>Active exploration across multiple licensed concessions</li>
-            <li>Artisanal and small-scale mining support programmes</li>
-            <li>On-site XRF and laboratory processing facilities</li>
-            <li>Full chain-of-custody documentation for all output</li>
-          </ul>
-          <a class="btn btn-gold" onclick="goTo('contact')" style="margin-top:12px"><span>Partner With Us</span><span>→</span></a>
+          <a class="btn btn-gold" onclick="goTo('contact')" style="margin-top:28px"><span>Partner With Us</span><span>→</span></a>
         </div>
         <div class="reveal d2">
           <div class="img-stack" style="height:480px">
@@ -1809,63 +1806,39 @@ footer { background: var(--panel); border-top: 1px solid var(--border); padding:
   <!-- OPERATIONS IMAGE STRIP -->
   <div style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(36px,5vw,60px) 0">
     <div class="wrap">
-      <div class="ops-strip" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
-        <div class="type-card reveal">
-          <img class="type-img" src="goldpit.jpeg" alt="Geological Exploration" style="height:200px">
-          <div class="type-body">
-            <div class="type-name">Geological Exploration</div>
-            <p class="type-desc">Field teams conduct soil sampling and geophysical surveys to identify viable mineral concessions.</p>
-          </div>
+      <div class="reveal" style="margin-bottom:28px">
+        <div class="label">Our Work in the Field</div>
+        <h2 class="h2">Gallery</h2>
+      </div>
+      <div class="ops-strip" style="display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px">
+        <div class="gallery-item" style="flex:0 0 300px;height:260px;scroll-snap-align:start">
+          <img src="goldpit.jpeg" alt="Geological Exploration">
         </div>
-        <div class="type-card reveal d1">
-          <video style="width:100%;height:200px;object-fit:cover;display:block" controls>
+        <div class="gallery-item" style="flex:0 0 300px;height:260px;scroll-snap-align:start;background:#000">
+          <video style="width:100%;height:100%;object-fit:cover;display:block" controls>
             <source src="vid1.mp4" type="video/mp4">
           </video>
-          <div class="type-body">
-            <div class="type-name">Active Extraction</div>
-            <p class="type-desc">Heavy machinery and certified operators execute controlled open-cast and alluvial extraction operations.</p>
-          </div>
         </div>
-        <div class="type-card reveal d2">
-          <img class="type-img" src="mine.jpeg" alt="On-Site Processing" style="height:200px">
-          <div class="type-body">
-            <div class="type-name">On-Site Processing</div>
-            <p class="type-desc">Gravity separation and centrifugal concentration units process raw ore into clean gold concentrate.</p>
-          </div>
+        <div class="gallery-item" style="flex:0 0 300px;height:260px;scroll-snap-align:start">
+          <img src="mine.jpeg" alt="Active Extraction">
         </div>
-        <div class="type-card reveal d3">
-          <video style="width:100%;height:200px;object-fit:cover;display:block" controls>
+        <div class="gallery-item" style="flex:0 0 300px;height:260px;scroll-snap-align:start;background:#000">
+          <video style="width:100%;height:100%;object-fit:cover;display:block" controls>
             <source src="vid2.mp4" type="video/mp4">
           </video>
-          <div class="type-body">
-            <div class="type-name">Refining Operations</div>
-            <p class="type-desc">Smelting and cupellation remove impurities, producing high-purity gold output to international bullion standards.</p>
-          </div>
         </div>
-        <div class="type-card reveal">
-          <img class="type-img" src="goldpool.jpeg" alt="Gold Pool" style="height:200px">
-          <div class="type-body">
-            <div class="type-name">Processing Pool</div>
-            <p class="type-desc">Controlled aqueous processing extracts fine gold particles from concentrate for further refinement.</p>
-          </div>
+        <div class="gallery-item" style="flex:0 0 300px;height:260px;scroll-snap-align:start">
+          <img src="goldpool.jpeg" alt="Processing Pool">
         </div>
-        <div class="type-card reveal d1">
-          <video style="width:100%;height:200px;object-fit:cover;display:block" controls>
+        <div class="gallery-item" style="flex:0 0 300px;height:260px;scroll-snap-align:start;background:#000">
+          <video style="width:100%;height:100%;object-fit:cover;display:block" controls>
             <source src="vid3.mp4" type="video/mp4">
           </video>
-          <div class="type-body">
-            <div class="type-name">Quality Verification</div>
-            <p class="type-desc">Certified XRF analysis and fire assay deliver documented purity certificates on every batch.</p>
-          </div>
         </div>
-        <div class="type-card reveal d2">
-          <video style="width:100%;height:200px;object-fit:cover;display:block" controls>
+        <div class="gallery-item" style="flex:0 0 300px;height:260px;scroll-snap-align:start;background:#000">
+          <video style="width:100%;height:100%;object-fit:cover;display:block" controls>
             <source src="vid4.mp4" type="video/mp4">
           </video>
-          <div class="type-body">
-            <div class="type-name">Distribution</div>
-            <p class="type-desc">Secure logistics and full chain-of-custody documentation ensure compliant, traceable gold market delivery.</p>
-          </div>
         </div>
       </div>
     </div>
